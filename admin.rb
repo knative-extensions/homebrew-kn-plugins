@@ -1,8 +1,4 @@
-if OS.mac?
-  require "FileUtils"
-else
-  require "fileutils"
-end
+require 'fileutils'
 
 class Admin < Formula
   v = "v0.21.0"
