@@ -25,4 +25,4 @@ Alternatively you can also install each plugin directly (without adding a tap gl
 ```
 brew install knative-sandbox/kn-plugins/admin
 ```
-By default the installation will place the plugin binary into your `PATH`. You will need to move them to your `~/.config/kn/plugins` directory uless you are using [`lookup-plugins`](https://github.com/knative/client/blob/main/docs/README.md#options) with `kn`.
+By default the installation will place the plugin binary into your `PATH`. You will need to move them to your `~/.config/kn/plugins` directory unless you are using [`lookup-plugins`](https://github.com/knative/client/blob/main/docs/README.md#options) with `kn`.
