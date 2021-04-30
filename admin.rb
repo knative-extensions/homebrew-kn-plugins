@@ -1,7 +1,7 @@
 require 'fileutils'
 
 class Admin < Formula
-  v = "v0.21.0"
+  v = "v0.22.0"
   plugin_name = "admin"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
@@ -13,10 +13,10 @@ class Admin < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "9a10e1b0ff9a035d88b6d69d5d7bf235de8a2b4b1002062688e104fe936f4161"
+    sha256 "d1232dffcfaca518b77f54b6ce49b478b1e9409203acb9ea4a1cfe38194f5576"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "05badf881ac18f7fb4d567b995d98f480a080ed5e64728882392af65db28dfa6"
+    sha256 "863ea33842f6ec32eaa6818f45554e1cb997731a52248d659c687c9d2ff00f23"
   end
 
   def install
