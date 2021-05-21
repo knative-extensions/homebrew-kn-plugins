@@ -7,33 +7,28 @@ class SourceKafka < Formula
 
   plugins_helper = PluginsHelper.new(plugin_name, v)
 
-  path_name = "kn-plugin-#{plugin_name}"
-  file_name = "kn-#{plugin_name}"
-  
-  base_url = "https://github.com/knative-sandbox/#{path_name}/releases/download/v#{v}"
-
-  homepage plugins_helper.repo()
+  homepage plugins_helper.homepage()
 
   version "v#{v}"
 
   if OS.mac?
-    url "#{base_url}/#{file_name}-darwin-amd64"
+    url "#{plugins_helper.base_url()}/#{plugins_helper.file_name()}-darwin-amd64"
     sha256 plugins_helper.sha('darwin-amd64')
   else
-    url "#{base_url}/#{file_name}-linux-amd64"
+    url "#{plugins_helper.base_url()}/#{plugins_helper.file_name()}-linux-amd64"
     sha256 plugins_helper.sha('linux-amd64')
   end
 
   def install
     if OS.mac?
-      FileUtils.mv("kn-source-kafka-darwin-amd64", "kn-source-kafka")
+      FileUtils.mv("#{plugins_helper.file_name()}-darwin-amd64", plugins_helper.file_name())
     else
-      FileUtils.mv("kn-source-kafka-linux-amd64", "kn-source-kafka")
+      FileUtils.mv("#{plugins_helper.file_name()}-linux-amd64", plugins_helper.file_name())
     end
-    bin.install "kn-source-kafka"
+    bin.install plugins_helper.file_name()
   end
 
   test do
-    system "#{bin}/kn-source-kafka", "help"
+    system "#{bin}/#{plugins_helper.file_name()}", "help"
   end
 end

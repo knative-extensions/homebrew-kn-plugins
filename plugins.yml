@@ -1,38 +1,24 @@
 ---
-source-kafka:
-  repo: https://github.com/knative-sandbox/kn-plugin-source-kafka
-  0.22.0:
+0.22.0:
+  source-kafka:
+    download: https://github.com/knative-sandbox/kn-plugin-source-kafka/releases/download/v0.22.0    
     shas:
       darwin-amd64: 9a410c2062a351f778fcf84a85909d50a886dfc5daeb5554a16b03db201ee83c
       linux-amd64: 650136bb614910c38aa3c0e12321bba2fda1df321746ad4a1f53f3f5d2229096
-      linux-arm64: 8c76ea635fc06919dd15657dc8565db15f97d2dbe7d30302eab5f9d54e73f26c
-      windows-amd64.exe: 0ae2686d47e95ccb0c3177af5f6d9f8368bc2d17a72d96ba033300a34881f836
-      linux-s390x: f30ff3127b2a9e91f9a943589eb778590a4528be93720eecf9cf67aebb778e33
-      linux-ppc64le: dbbf4794694c8e9d6967f72e189200b64a1ede09bebfd7e7a426570d91f9230e
-  0.23.0:
-    shas:
-      darwin-amd64: 32d4019f6287a4a6f0f153f6a4c02e824c49bb3077d8a35d58d5ec3410604814
-      linux-amd64: 128821b22bb9d89a874f8cf47f559c9a3380326d0afc28fdcc22987fb8bbc61f
-      linux-arm64: 491fb0518416870a27c55220aac6128cbf857e78b8f9e08909f38566e67dd81a
-      windows-amd64.exe: 9d498dfb44c7d5346982255647492d05f998ca10f69adfe7a36cd9d5aa133e6a
-      linux-s390x: 0f3bb31707b10f60b5b173faef29421307bfce0e33a45654b6ce38ba0bc4e1e3
-      linux-ppc64le: 1c89331d1077a77cd544a757c7cafdb2169e64d381bc7abac57de2a87825ed22
-admin:
-  repo: https://github.com/knative-sandbox/kn-plugin-admin
-  0.22.0:
+  admin:
+    download: https://github.com/knative-sandbox/kn-plugin-admin/releases/download/v0.22.0
     shas:
       darwin-amd64: d1232dffcfaca518b77f54b6ce49b478b1e9409203acb9ea4a1cfe38194f5576
       linux-amd64: 863ea33842f6ec32eaa6818f45554e1cb997731a52248d659c687c9d2ff00f23
-      linux-arm64: f14d417cc7a25be3ca220954fbfc5cab9e8f0a724b1796b6272e097c1dbe5a2e
-      windows-amd64.exe: 2d9be90517987157d7951c857207160c91d50cd30cf6413279b6fc594bd48994
-      linux-s390x: e9ffe88414745b677eccc79f16717957b838e340dbe75419c5f5fbf481cf66af
-      linux-ppc64le: 30db7f3df267c1943e1a0174d0f97f77fb97ee008b37cc93f565e6035dc1f3a2
-  0.23.0:
+0.23.0:
+  source-kafka:
+    download: https://github.com/knative-sandbox/kn-plugin-source-kafka/releases/download/v0.23.0
+    shas:
+      darwin-amd64: 32d4019f6287a4a6f0f153f6a4c02e824c49bb3077d8a35d58d5ec3410604814
+      linux-amd64: 128821b22bb9d89a874f8cf47f559c9a3380326d0afc28fdcc22987fb8bbc61f
+  admin:
+    download: https://github.com/knative-sandbox/kn-plugin-admin/releases/download/v0.23.0
     shas:
       darwin-amd64: a2f300ed33eb8db1606172a47dd4546ff48a151ba7f671ad38a626a39dd3921b
       linux-amd64: 8ca3d751aa788b79516f68f6c9821cd5f40226754f25ca7c9d9a8f5bbfd0c158
-      linux-arm64: 5f26f2b23cef6250557bfbab762cab940affbffe8778d04b6437d8cb8d250d6f
-      windows-amd64.exe: 55246bc894b0d16ed189b7fa26fbe8ce35ae91b5f33ac3bdd93c2f1a5f757995
-      linux-s390x: 4208799463880972c937d38688ef33f344b1aa9d1fe951bb7ef107111a8239c1
-      linux-ppc64le: 4f451f17baa290d196004c41cc42346bb6511fbef470f0c85e55209e39b5c513 
 
