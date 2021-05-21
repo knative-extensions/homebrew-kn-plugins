@@ -17,7 +17,7 @@ class PluginsHelper
 	end
 
 	def repo
-		return load_plugins_yml[@name][@version]['repo']
+		return load_plugins_yml[@name]['repo']
 	end
 
 	private
