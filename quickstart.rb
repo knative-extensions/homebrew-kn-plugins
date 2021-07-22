@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'Dir'
 
 class Quickstart < Formula
   v = "v0.1.0"
@@ -20,15 +21,15 @@ class Quickstart < Formula
   end
 
   def install
+    FileUtils.mkdir_p(Dir.home + "/.config/kn/plugins")
     if OS.mac?
-      FileUtils.mv("kn-quickstart-darwin-amd64", "kn-quickstart")
+      FileUtils.mv("kn-quickstart-darwin-amd64", Dir.home + "/.config/kn/plugins/kn-quickstart")
     else
-      FileUtils.mv("kn-quickstart-linux-amd64", "kn-quickstart")
+      FileUtils.mv("kn-quickstart-linux-amd64", Dir.home + "/.config/kn/plugins/kn-quickstart")
     end
-    bin.install "kn-quickstart"
   end
 
   test do
-    system "#{bin}/kn-quickstart", "version"
+    system "kn", "quickstart", "version"
   end
 end
