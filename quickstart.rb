@@ -20,15 +20,21 @@ class Quickstart < Formula
   end
 
   def install
+    me = `whoami`.strip
     if OS.mac?
+      FileUtils.mkdir_p("/Users/#{me}/.config/kn/plugins")
       FileUtils.mv("kn-quickstart-darwin-amd64", "kn-quickstart")
+      bin.install "kn-quickstart"
+      system "ln -s #{bin}/kn-quickstart /Users/#{me}/.config/kn/plugins"
     else
+      FileUtils.mkdir_p("/home/#{me}/.config/kn/plugins")
       FileUtils.mv("kn-quickstart-linux-amd64", "kn-quickstart")
+      bin.install "kn-quickstart"
+      system "ln -s #{bin}/kn-quickstart /home/#{me}/.config/kn/plugins"
     end
-    bin.install "kn-quickstart"
   end
 
   test do
-    system "#{bin}/kn-quickstart", "version"
+    system "kn", "quickstart", "version"
   end
 end
