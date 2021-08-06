@@ -12,6 +12,7 @@ The supported client plugins are:
 
 * [kn-plugin-admin](https://github.com/knative-sandbox/kn-plugin-admin) - The Admin plugin
 * [kn-plugin-source-kafka](https://github.com/knative-sandbox/kn-plugin-source-kafka) - The source Kafka plugin
+* [kn-plugin-quickstart](https://github.com/knative-sandbox/kn-plugin-quickstart) - The Quickstart plugin
 
 
 Install them with `brew install` like in
