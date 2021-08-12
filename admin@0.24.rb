@@ -1,6 +1,6 @@
 require 'fileutils'
 
-class AdminAt024 < Formula
+class AdminAT024 < Formula
   v = "v0.24.0"
   plugin_name = "admin"
   path_name = "kn-plugin-#{plugin_name}"
