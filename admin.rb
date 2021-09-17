@@ -13,10 +13,10 @@ class Admin < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "42fa937b3e9255fc7bd0187211b28ee4081b20f5c5c2031d468c6ab8bb085089"
+    sha256 "REPLACE_ME"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "fced1d9a3a2775637e8997ba01bd21782176caac3fc7d2556cc68c593cd3dc86"
+    sha256 "REPLACE_ME"
   end
 
   def install
