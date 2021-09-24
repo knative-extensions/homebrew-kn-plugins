@@ -1,7 +1,7 @@
 require 'fileutils'
 
 class SourceKafka < Formula
-  v = "v0.26.0"
+  v = "v0.25.0"
   plugin_name = "source-kafka"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
@@ -13,10 +13,10 @@ class SourceKafka < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "e3d7da774a8377d48ffe122632a2e62fac9cca136188ace269f9e3022f097d6b"
+    sha256 "9f06d312ab9f61c738c08cb1a757173f565948cf33b24b1893ae98d779a70c17"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "88c8c36eac3f25874889471c6516c7da8e6e203f64b3c8244953e9d3ceaded44"
+    sha256 "b2859c81ab73e0c349f8101a54eab1468b8f5b8d2e993d14d665c7cad6c1a337"
   end
 
   def install

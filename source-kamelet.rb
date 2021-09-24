@@ -1,8 +1,8 @@
 require 'fileutils'
 
-class SourceKafka < Formula
+class SourceKamelet < Formula
   v = "v0.26.0"
-  plugin_name = "source-kafka"
+  plugin_name = "source-kamelet"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
   base_url = "https://github.com/knative-sandbox/#{path_name}/releases/download/#{v}"
@@ -13,22 +13,22 @@ class SourceKafka < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "e3d7da774a8377d48ffe122632a2e62fac9cca136188ace269f9e3022f097d6b"
+    sha256 "6de5854bf15762775c3f920fc08529ccbb6b498161c544e62e3d843625d1286f"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "88c8c36eac3f25874889471c6516c7da8e6e203f64b3c8244953e9d3ceaded44"
+    sha256 "24f42bdb5625ae012418dd57350bcfac29577ca7f667c72b02dd95669b7c15c5"
   end
 
   def install
     if OS.mac?
-      FileUtils.mv("kn-source-kafka-darwin-amd64", "kn-source-kafka")
+      FileUtils.mv("kn-source-kamelet-darwin-amd64", "kn-source-kamelet")
     else
-      FileUtils.mv("kn-source-kafka-linux-amd64", "kn-source-kafka")
+      FileUtils.mv("kn-source-kamelet-linux-amd64", "kn-source-kamelet")
     end
-    bin.install "kn-source-kafka"
+    bin.install "kn-source-kamelet"
   end
 
   test do
-    system "#{bin}/kn-source-kafka", "version"
+    system "#{bin}/kn-source-kamelet", "version"
   end
 end
