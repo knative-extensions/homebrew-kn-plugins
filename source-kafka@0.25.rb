@@ -1,6 +1,6 @@
 require 'fileutils'
 
-class SourceKafka < Formula
+class SourceKafkaAT025 < Formula
   v = "v0.25.0"
   plugin_name = "source-kafka"
   path_name = "kn-plugin-#{plugin_name}"
