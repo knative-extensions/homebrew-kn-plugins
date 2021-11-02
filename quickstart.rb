@@ -1,7 +1,7 @@
 require 'fileutils'
 
 class Quickstart < Formula
-  v = "v1.0.0"
+  v = "knative-v1.0.0"
   plugin_name = "quickstart"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
