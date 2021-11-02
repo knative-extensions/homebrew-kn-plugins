@@ -1,7 +1,7 @@
 require 'fileutils'
 
 class Admin < Formula
-  v = "v0.26.0"
+  v = "knative-v1.0.0"
   plugin_name = "admin"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
@@ -13,10 +13,10 @@ class Admin < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "9ad5c76e4de0e56dad21120266a928301dd655e1d7b25200028bdbde7f1e2460"
+    sha256 "a911d42877c89f61b724906ccd2de1bf58289c71cf87c53c15122e23cdae1e7f"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "8171613d7862b4d4854660134b350e4d62a882b0f28fe23eae42ab218137a583"
+    sha256 "ab2ca3d2ea9cde5db632c20dd209c88f13d73de282e442d4482fcf34c478f2de"
   end
 
   def install

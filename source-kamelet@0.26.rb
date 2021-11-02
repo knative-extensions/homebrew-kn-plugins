@@ -1,7 +1,7 @@
 require 'fileutils'
 
-class SourceKamelet < Formula
-  v = "knative-v1.0.0"
+class SourceKameletAT26 < Formula
+  v = "v0.26.0"
   plugin_name = "source-kamelet"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
@@ -13,10 +13,10 @@ class SourceKamelet < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "3aa8f44857cc92ec1daabdd91808649164711b7b26cf5a55a218020c1a262933"
+    sha256 "6de5854bf15762775c3f920fc08529ccbb6b498161c544e62e3d843625d1286f"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "49327b16978d8cca0deebfb2c89e738081c9b075c9d119f90f591affed50b116"
+    sha256 "24f42bdb5625ae012418dd57350bcfac29577ca7f667c72b02dd95669b7c15c5"
   end
 
   def install

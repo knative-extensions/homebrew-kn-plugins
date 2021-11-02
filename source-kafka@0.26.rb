@@ -1,7 +1,7 @@
 require 'fileutils'
 
-class SourceKafka < Formula
-  v = "knative-v1.0.0"
+class SourceKafkaAT26 < Formula
+  v = "v0.26.0"
   plugin_name = "source-kafka"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
@@ -13,10 +13,10 @@ class SourceKafka < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "1b1d2f888b7bd77cbfba6a6aaea18d077dd21b220af7806b4a0ed838470d4ac8"
+    sha256 "e3d7da774a8377d48ffe122632a2e62fac9cca136188ace269f9e3022f097d6b"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "42f5ec1a134f0bc525361de89e6702bf7a9e713edf70104f04ff47d9ae8b2276"
+    sha256 "88c8c36eac3f25874889471c6516c7da8e6e203f64b3c8244953e9d3ceaded44"
   end
 
   def install
