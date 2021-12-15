@@ -1,6 +1,6 @@
 require 'fileutils'
 
-class QuickstartAT06 < Formula
+class QuickstartAT10 < Formula
   v = "v1.0.1"
   plugin_name = "quickstart"
   path_name = "kn-plugin-#{plugin_name}"
