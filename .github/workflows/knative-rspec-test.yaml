@@ -28,24 +28,26 @@ on:
 jobs:
 
   test:
-    name: Unit Tests
+    name: RSpec
     strategy:
       matrix:
+        ruby-version: ['2.6', '3.0']
         platform: [ubuntu-latest]
 
     runs-on: ${{ matrix.platform }}
 
     steps:
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6
-
       - name: Check out code
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      - name: Set up Ruby ${{ matrix.ruby-version }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
 
       - name: Merge upstream
         if: github.event_name == 'pull_request'
@@ -62,4 +64,4 @@ jobs:
         shell: bash
 
       - name: Test
-        run: rspec
+        run: bundle exec rspec
