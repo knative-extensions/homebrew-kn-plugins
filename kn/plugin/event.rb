@@ -5,7 +5,7 @@ module Kn
 module Plugin
 
 class Event
-  attr_reader :version
+  attr_reader :version, :source_bin, :target_bin
 
   def initialize(version)
     @version = version
@@ -37,8 +37,7 @@ class Event
 
   private
 
-  attr_reader :os, :arch, :plugin_name, :org, :repo
-  attr_reader :file_name, :base_url, :source_bin, :target_bin
+  attr_reader :os, :arch, :plugin_name, :org, :repo, :file_name, :base_url
 
   def gh_host
     ENV.fetch('GITHUB_HOST', 'github.com')
