@@ -1,4 +1,4 @@
-require 'net/http'
+require_relative 'net/downloader'
 
 module Kn
 
@@ -32,25 +32,8 @@ class Checksums
   end
 
   def download
-    response = fetch("https://#{@gh_host}/#{@org}/#{@repo}/releases/download/knative-#{@version}/#{@checksums_file}")
-    response.body
-  end
-
-  def fetch(uri, limit = 10)
-    # You should choose a better exception.
-    raise ArgumentError, 'too many HTTP redirects' if limit == 0
-  
-    response = Net::HTTP.get_response(URI(uri))
-  
-    case response
-    when Net::HTTPSuccess then
-      response
-    when Net::HTTPRedirection then
-      location = response['location']
-      fetch(location, limit - 1)
-    else
-      response.value
-    end
+    Kn::Net::Downloader.get("https://#{@gh_host}/#{@org}/#{@repo}" +
+      "/releases/download/knative-#{@version}/#{@checksums_file}")
   end
 end
 

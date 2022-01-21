@@ -1,35 +1,25 @@
 require 'fileutils'
 require 'json'
 
-require_relative 'kn/os'
-require_relative 'kn/checksums'
+require_relative 'kn/plugin/event'
 
 class Event < Formula
   v = 'v1.1.1'
-  plugin_name = 'event'
-  org = 'knative-sandbox'
-  repo = "kn-plugin-#{plugin_name}"
-  file_name = "kn-#{plugin_name}"
-  base_url = "https://github.com/#{org}/#{repo}/releases/download/knative-#{v}"
-  arch = 'amd64'
-  os = if Kn::OS.mac? then 'darwin' else 'linux' end
-  source_bin = "kn-event-#{os}-#{arch}"
-  target_bin = 'kn-event'
-  checksums = Kn::Checksums.new(org, repo, v)
+  plugin = Kn::Plugin::Event.new(v)
+  
+  homepage plugin.homepage
 
-  homepage "https://github.com/#{org}/#{repo}"
-
-  version v
-  url "#{base_url}/#{file_name}-#{os}-#{arch}"
-  sha256 checksums.digest(os, arch)
+  version plugin.version
+  url plugin.url
+  sha256 plugin.sha256
 
   def install
-    FileUtils.mv(source_bin, target_bin)
-    bin.install target_bin
+    FileUtils.mv(plugin.source_bin, plugin.target_bin)
+    bin.install plugin.target_bin
   end
 
   test do
-    json = shell_output("#{bin}/#{target_bin} version -o json").strip
+    json = shell_output("#{bin}/#{plugin.target_bin} version -o json").strip
     version_info = JSON.parse(json)
     assert_equal v, version_info['version']
   end
