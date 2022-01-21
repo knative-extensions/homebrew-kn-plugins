@@ -20,7 +20,7 @@ class Event
     @source_bin = "kn-event-#{@os}-#{@arch}"
     @target_bin = 'kn-event'
 
-    @checksums = Kn::Checksums.new(@org, @repo, @version, gh_host: gh_host)
+    @checksums = Kn::Checksums.new(@org, @repo, @version, gh_host)
   end
 
   def homepage

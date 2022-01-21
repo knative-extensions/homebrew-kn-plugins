@@ -10,8 +10,10 @@ RSpec.describe Kn::Plugin::Event do
 
   describe '#sha256' do
     before :each do
+      uri = 'https://github.com/knative-sandbox/kn-plugin-event' +
+        '/releases/download/knative-v1.1.1/checksums.txt'
       expect(Kn::OS).to receive(:mac?).and_return(false)
-      expect(Kn::Net::Downloader).to receive(:get).and_return <<~TXT
+      expect(Kn::Net::Downloader).to receive(:get).with(uri).and_return <<~TXT
       6f26315  kn-none-linux-amd64
       12aac60  kn-none-darwin-amd64
       TXT

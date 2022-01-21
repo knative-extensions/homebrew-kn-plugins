@@ -4,7 +4,7 @@ module Kn
 
 class Checksums
   def initialize(org, repo, version, 
-    checksums_file = 'checksums.txt', gh_host = 'github.com')
+    gh_host = 'github.com', checksums_file = 'checksums.txt')
     @org = org
     @repo = repo
     @version = version
