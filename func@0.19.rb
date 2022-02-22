@@ -1,7 +1,7 @@
 require 'fileutils'
 
-class Func < Formula
-  v = "v0.21.2"
+class FuncAT019 < Formula
+  v = "v0.19.0"
   plugin_name = "func"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "#{plugin_name}"
@@ -12,11 +12,11 @@ class Func < Formula
   version v
 
   if OS.mac?
-    url "#{base_url}/#{file_name}_darwin_amd64"
-    sha256 "2d21429d8c9d8b7a4fda958ec210765ec8d03729cd130a68ab6a6d0c50a29479"
+    url "#{base_url}/#{file_name}_darwin_amd64.gz"
+    sha256 "42d6f491a2cead97a5fe70a20ada0580acbcddb36628f3571c2afe73e6d6a852"
   else
-    url "#{base_url}/#{file_name}_linux_amd64"
-    sha256 "70d22e96cde36809e9681b7cec891f0a63d96c84a4eede0de727aadca42bd363"
+    url "#{base_url}/#{file_name}_linux_amd64.gz"
+    sha256 "36a3631f79fea45ec9b6958a559fd74947ad562bdc1d7f23548e51aa322d4c3b"
   end
 
   def install
