@@ -1,7 +1,7 @@
 require 'fileutils'
 
 class SourceKamelet < Formula
-  v = "v1.3.0"
+  v = "v1.3.1"
   plugin_name = "source-kamelet"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
