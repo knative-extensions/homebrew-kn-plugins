@@ -1,7 +1,7 @@
 require 'fileutils'
 
 class Func < Formula
-  v = "v0.23.1"
+  v = "v0.22.0"
   plugin_name = "func"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "#{plugin_name}"
@@ -12,16 +12,11 @@ class Func < Formula
   version v
 
   if OS.mac?
-    if OS.host_cpu == "arm64"
-      url "#{base_url}/#{file_name}_darwin_arm64"
-      sha256 "05f20523872f94540be222c1c6ecf7dca86e7c909ae6c7f0a12ff5bbbf064eb9"
-    else
-      url "#{base_url}/#{file_name}_darwin_amd64"
-      sha256 "47424efa16ba064efd8348bf6fb85396d0a3771e648435ba051d466b721111da"
-    end
+    url "#{base_url}/#{file_name}_darwin_amd64"
+    sha256 "fce001fcc66042d77974a192a133dd11a88fa0efaa03a6167b562c1b35327583"
   else
     url "#{base_url}/#{file_name}_linux_amd64"
-    sha256 "fea929a0d4a29fd1e8fd81c96d7c1b5e96756138077b29459db33772a2e17105"
+    sha256 "778fc94b0351e238ff2804e0bc7306fea65cbaa37ca3619ed22306f249f44a33"
   end
 
   def install
@@ -31,11 +26,9 @@ class Func < Formula
       FileUtils.mv("func_linux_amd64", "kn-func")
     end
     bin.install "kn-func"
-    bin.install_symlink "kn-func" "func"
   end
 
   test do
     system "#{bin}/kn-func", "version"
   end
 end
-
