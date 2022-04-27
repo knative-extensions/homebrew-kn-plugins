@@ -1,5 +1,4 @@
 require 'fileutils'
-require 'rbconfig';
 
 class Func < Formula
   v = "v0.23.1"
@@ -13,7 +12,7 @@ class Func < Formula
   version v
 
   if OS.mac?
-    if RbConfig::CONFIG["host_cpu"] == "arm64"
+    if `uname -m`.chomp  == "arm64"
       url "#{base_url}/#{file_name}_darwin_arm64"
       sha256 "05f20523872f94540be222c1c6ecf7dca86e7c909ae6c7f0a12ff5bbbf064eb9"
     else
@@ -27,12 +26,18 @@ class Func < Formula
 
   def install
     if OS.mac?
-      FileUtils.mv("func_darwin_amd64", "kn-func")
+      if `uname -m`.chomp == "arm64"
+        FileUtils.mv("func_darwin_arm64", "kn-func")
+      else
+        FileUtils.mv("func_darwin_amd64", "kn-func")
+      end
     else
       FileUtils.mv("func_linux_amd64", "kn-func")
     end
+    p "Installing kn-func binary in " + bin
     bin.install "kn-func"
-    bin.install_symlink "kn-func" "func"
+    p "Installing func symlink in " + bin
+    ln_s "kn-func", bin/"func"
   end
 
   test do
