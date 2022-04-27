@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'rbconfig';
 
 class Func < Formula
   v = "v0.23.1"
@@ -12,7 +13,7 @@ class Func < Formula
   version v
 
   if OS.mac?
-    if OS.host_cpu == "arm64"
+    if RbConfig::CONFIG["host_cpu"] == "arm64"
       url "#{base_url}/#{file_name}_darwin_arm64"
       sha256 "05f20523872f94540be222c1c6ecf7dca86e7c909ae6c7f0a12ff5bbbf064eb9"
     else
