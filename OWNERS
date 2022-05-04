@@ -2,6 +2,7 @@ approvers:
 - client-writers
 - technical-oversight-committee
 - knative-release-leads
+- homebrew-kn-plugins-approvers
 reviewers:
 - client-writers
 
