@@ -3,8 +3,8 @@ require 'json'
 
 require_relative 'kn/plugin/event'
 
-class Event < Formula
-  PLUGIN = Kn::Plugin::Event.new 'v1.5.0'
+class EventAT14 < Formula
+  PLUGIN = Kn::Plugin::Event.new 'v1.4.0'
   
   homepage PLUGIN.homepage
   version PLUGIN.version
