@@ -1,6 +1,6 @@
 require 'fileutils'
 
-class Func < Formula
+class FuncAT023 < Formula
   v = "v0.23.1"
   plugin_name = "func"
   path_name = "kn-plugin-#{plugin_name}"
