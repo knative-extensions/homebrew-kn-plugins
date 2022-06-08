@@ -14,6 +14,7 @@ The supported client plugins are:
 * [kn-plugin-func](https://github.com/knative-sandbox/kn-plugin-func) - The Functions plugin
 * [kn-plugin-quickstart](https://github.com/knative-sandbox/kn-plugin-quickstart) - The Quickstart plugin
 * [kn-plugin-source-kafka](https://github.com/knative-sandbox/kn-plugin-source-kafka) - The source Kafka plugin
+* [kn-plugin-source-kamelet](https://github.com/knative-sandbox/kn-plugin-source-kamelet) - The source Kamelet plugin
 * [kn-plugin-event](https://github.com/knative-sandbox/kn-plugin-event) - Sending events to Knative sinks
 
 
@@ -28,3 +29,9 @@ Alternatively you can also install each plugin directly (without adding a tap gl
 ```
 brew install knative-sandbox/kn-plugins/admin
 ```
+
+## Updating Plugin Versions
+
+To update plugins that are part of the [release train](https://github.com/knative/release/blob/main/INSTRUCTIONS.md#homebrew-kn-plugins), update the `PREVIOUS_RELEASE` / `CURRENT_RELEASE` variables in the `./hack/update-versions.sh` script, then run the script locally and push a PR with the changes. 
+
+For plugins not on the release train, updates will need to be done manually, as for example in [this PR](https://github.com/knative-sandbox/homebrew-kn-plugins/pull/92). 
