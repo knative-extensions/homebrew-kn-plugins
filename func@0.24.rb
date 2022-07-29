@@ -1,7 +1,7 @@
 require 'fileutils'
 
-class Func < Formula
-  v = "v0.25.1"
+class FuncAT024< Formula
+  v = "v0.24.0"
   plugin_name = "func"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "#{plugin_name}"
@@ -14,14 +14,14 @@ class Func < Formula
   if OS.mac?
     if `uname -m`.chomp  == "arm64"
       url "#{base_url}/#{file_name}_darwin_arm64"
-      sha256 "ba13659893f1e5dd114a4162f2c90ef246ef6e32c6dace22c3b2c3192d107aec"
+      sha256 "969b7ec3494d13e699038e75f3210e81313fa103b65f10b45e7e7d9a370cadbb"
     else
       url "#{base_url}/#{file_name}_darwin_amd64"
-      sha256 "84dcbc6245940e5909243bdd93cd35ad2f08737b677a4a043b15f0d278b1c921"
+      sha256 "5e83fd1fb52b742c2e985df785ab52ab42d8c4cee7eec7706699f014bfb39aca"
     end
   else
     url "#{base_url}/#{file_name}_linux_amd64"
-    sha256 "e51f45ae6708edf8ad6b980e0045b8fdb49b4d31f3e1a70106ade5d11d20c429"
+    sha256 "3244c3c5ac346b950d78c9bb2267ee88606fb0a971d4a51a0973a323f1d6090d"
   end
 
   def install
