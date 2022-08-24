@@ -17,8 +17,8 @@
 set -e
 
 PLUGINS=("admin" "event" "quickstart" "source-kafka" "source-kamelet")
-CURRENT_RELEASE=${CURRENT_RELEASE:-1.5}
-PREVIOUS_RELEASE=${PREVIOUS_RELEASE:-1.4}
+CURRENT_RELEASE=${CURRENT_RELEASE:-1.7}
+PREVIOUS_RELEASE=${PREVIOUS_RELEASE:-1.6}
 
 for plugin in "${PLUGINS[@]}"; do
 
@@ -38,12 +38,12 @@ for plugin in "${PLUGINS[@]}"; do
     else
         class_name=${plugin^}
     fi
-    sed -i 's/class '${class_name}' < Formula/class '${class_name}'AT'$class_version' < Formula/' "$oldfile"
+    sed -i '' 's/class '${class_name}' < Formula/class '${class_name}'AT'$class_version' < Formula/' "$oldfile"
     echo "$oldfile created"
 
     echo "Creating formula for current release"
     #sed -i 's/v = "v'$PREVIOUS_RELEASE'/v = "v'$CURRENT_RELEASE'/' $newfile
-    sed -i 's/v'${PREVIOUS_RELEASE}'/v'$CURRENT_RELEASE'/g' "$newfile"
+    sed -i '' 's/v'${PREVIOUS_RELEASE}'/v'$CURRENT_RELEASE'/g' "$newfile"
 
     # change shas for mac and linux
     checksums=$(mktemp)
@@ -52,10 +52,10 @@ for plugin in "${PLUGINS[@]}"; do
     curl -L "https://github.com/knative-sandbox/kn-plugin-${plugin}/releases/download/knative-v${PREVIOUS_RELEASE}.0/checksums.txt" > "$old_checksums"
     darwin_checksum=$(awk '$2=="kn-'"$plugin"'-darwin-amd64"{print $1}' $checksums)
     darwin_old_checksum=$(awk '$2=="kn-'"$plugin"'-darwin-amd64"{print $1}' $old_checksums)
-    sed -i 's/sha256 "'$darwin_old_checksum'"/sha256 "'$darwin_checksum'"/' "$newfile"
+    sed -i '' 's/sha256 "'$darwin_old_checksum'"/sha256 "'$darwin_checksum'"/' "$newfile"
     linux_checksum=$(awk '$2=="kn-'"$plugin"'-linux-amd64"{print $1}' $checksums)
     linux_old_checksum=$(awk '$2=="kn-'"$plugin"'-linux-amd64"{print $1}' $old_checksums)
-    sed -i 's/sha256 "'$linux_old_checksum'"/sha256 "'$linux_checksum'"/' "$newfile"
+    sed -i '' 's/sha256 "'$linux_old_checksum'"/sha256 "'$linux_checksum'"/' "$newfile"
 
     echo "$newfile created"
 
