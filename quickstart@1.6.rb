@@ -1,8 +1,8 @@
 require 'fileutils'
 
-class SourceKafka < Formula
-  v = "v1.7.0"
-  plugin_name = "source-kafka"
+class QuickstartAT16 < Formula
+  v = "v1.6.0"
+  plugin_name = "quickstart"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
   base_url = "https://github.com/knative-sandbox/#{path_name}/releases/download/knative-#{v}"
@@ -13,22 +13,23 @@ class SourceKafka < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "6b179afd45115b0fb2092fd289a94b6aa0b6f35954b3260ee9f65b8b9b6fdc66"
+    sha256 "f94bcbb5ea753342142eba6beae4047c2cc10cf03045c4ffaca9bf0f78129781"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "09ee91a10b0ca32c93e0cc104726deb0d0e58c668e54e040f56e686a359323ab"
+    sha256 "b1648c35455355fcc418efeda91ddf58987ed41b29f18f5bd9d39b1e1619a91e"
   end
 
   def install
     if OS.mac?
-      FileUtils.mv("kn-source-kafka-darwin-amd64", "kn-source-kafka")
+      FileUtils.mv("kn-quickstart-darwin-amd64", "kn-quickstart")
     else
-      FileUtils.mv("kn-source-kafka-linux-amd64", "kn-source-kafka")
+      FileUtils.mv("kn-quickstart-linux-amd64", "kn-quickstart")
     end
-    bin.install "kn-source-kafka"
+    bin.install "kn-quickstart"
   end
 
   test do
-    system "#{bin}/kn-source-kafka", "version"
+    system "#{bin}/kn-quickstart", "version"
   end
 end
+
