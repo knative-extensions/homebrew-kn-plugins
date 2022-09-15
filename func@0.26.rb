@@ -1,7 +1,7 @@
 require 'fileutils'
 
 class Func < Formula
-  v = "knative-v1.7.0"
+  v = "v0.25.1"
   plugin_name = "func"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "#{plugin_name}"
