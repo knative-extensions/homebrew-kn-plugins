@@ -14,14 +14,14 @@ class Func < Formula
   if OS.mac?
     if `uname -m`.chomp  == "arm64"
       url "#{base_url}/#{file_name}_darwin_arm64"
-      sha256 "ba13659893f1e5dd114a4162f2c90ef246ef6e32c6dace22c3b2c3192d107aec"
+      sha256 "d2ab0de9c3b058e1a27b0cb2cb8a2a630b6526d2e8de9571c9894813faabf69d"
     else
       url "#{base_url}/#{file_name}_darwin_amd64"
-      sha256 "84dcbc6245940e5909243bdd93cd35ad2f08737b677a4a043b15f0d278b1c921"
+      sha256 "80d0f6350c5d222259c22531fadddcca86339581efe455149b970648f5a2dd40"
     end
   else
     url "#{base_url}/#{file_name}_linux_amd64"
-    sha256 "e51f45ae6708edf8ad6b980e0045b8fdb49b4d31f3e1a70106ade5d11d20c429"
+    sha256 "1b0f2f9a357cb930a4c256620018b25adb634547a8fb315ddc303f150d4cf7f3"
   end
 
   def install
