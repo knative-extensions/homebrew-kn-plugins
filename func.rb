@@ -19,9 +19,16 @@ class Func < Formula
       url "#{base_url}/#{file_name}_darwin_amd64"
       sha256 "80d0f6350c5d222259c22531fadddcca86339581efe455149b970648f5a2dd40"
     end
-  else
-    url "#{base_url}/#{file_name}_linux_amd64"
-    sha256 "1b0f2f9a357cb930a4c256620018b25adb634547a8fb315ddc303f150d4cf7f3"
+  end
+
+  if OS.linux?
+    if `uname -m`.chomp  == "arm64"
+      url "#{base_url}/#{file_name}_linux_arm64"
+      sha256 "de357c92d62c4640da1c7750bbc70338c699a89f3ff4eab48c20a8e62aca1413"
+    else
+      url "#{base_url}/#{file_name}_linux_amd64"
+      sha256 "1b0f2f9a357cb930a4c256620018b25adb634547a8fb315ddc303f150d4cf7f3"
+    end 
   end
 
   def install
@@ -31,8 +38,13 @@ class Func < Formula
       else
         FileUtils.mv("func_darwin_amd64", "kn-func")
       end
-    else
-      FileUtils.mv("func_linux_amd64", "kn-func")
+    end
+    if OS.linux?
+      if `uname -m`.chomp == "arm64"
+        FileUtils.mv("func_linux_arm64", "kn-func")
+      else  
+        FileUtils.mv("func_linux_amd64", "kn-func")
+      end  
     end
     p "Installing kn-func binary in " + bin
     bin.install "kn-func"
