@@ -1,11 +1,11 @@
 require 'fileutils'
 
 class Func < Formula
-  v = "knative-v1.7.0"
+  v = "v1.7.0"
   plugin_name = "func"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "#{plugin_name}"
-  base_url = "https://github.com/knative-sandbox/#{path_name}/releases/download/#{v}"
+  base_url = "https://github.com/knative-sandbox/#{path_name}/releases/download/knative-#{v}"
 
   homepage "https://github.com/knative-sandbox/#{path_name}"
 
