@@ -13,10 +13,10 @@ class Quickstart < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "be35cd2acc28a44db23675aee934381cba74b4958f1889afe9f01d6935fc3bdc"
+    sha256 "d908c8d2fcc9c2f39bc412ac77a3c938dab13f0e89fddb95c360848f3870673e"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "377770176f92ab5d7fd0e0391160ff8a17c1e8cd61aedccc4619cca252e42c13"
+    sha256 "cff33e2e6566017c2522aa2fbd25c60b15c1d41270c4ba92e7701096f0e0b888"
   end
 
   def install
