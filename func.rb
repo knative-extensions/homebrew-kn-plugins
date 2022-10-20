@@ -14,20 +14,20 @@ class Func < Formula
   if OS.mac?
     if `uname -m`.chomp  == "arm64"
       url "#{base_url}/#{file_name}_darwin_arm64"
-      sha256 "1f92f2804f0fda88f7c9511bb426fe6ca53c7336da89c3ef2d9d0f20118f9d35"
+      sha256 "2dbb88b62b7f35c597f6c1bdbb8576be53aa49ac9978d2e6ae65e9b75246b8df"
     else
       url "#{base_url}/#{file_name}_darwin_amd64"
-      sha256 "75154d7764a7c6b13a1422b2cafb070260f46db2e885a83d8332d46dc3d8511c"
+      sha256 "53d786383a1aa138e507cbb71b2d4c5ede5df601ae6d5f1a8316e17a13817f35"
     end
   end
 
   if OS.linux?
     if `uname -m`.chomp  == "arm64"
       url "#{base_url}/#{file_name}_linux_arm64"
-      sha256 "c76fcb927fc409ca851e9d113d2f1dcd1f282988d9ef3def44266a317eb58a7c"
+      sha256 "bf051268651ad5bed2f6298b6e6e4e3a422235a46fa3a4d731d1b47324118f82"
     else
       url "#{base_url}/#{file_name}_linux_amd64"
-      sha256 "7c6f24b1a6475745851dfa21bb93df1f66a82d103c6e113497dd167dc0f84185"
+      sha256 "a5010db6d20c76a078fc880bfa08be1a09cdddf8226095475c018ac3175a6ff4"
     end 
   end
 
