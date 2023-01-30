@@ -1,7 +1,7 @@
 require 'fileutils'
 
-class SourceKamelet < Formula
-  v = "v1.9.0"
+class SourceKameletAT18 < Formula
+  v = "v1.8.0"
   plugin_name = "source-kamelet"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
@@ -13,10 +13,10 @@ class SourceKamelet < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "53337b7c326cce700a984188f794169231387b29ce777c7ff790d3d0ec70b554"
+    sha256 "14c53cb8c7acb61dc2a39347311366ac189e81b0a42436c94a9ba817793f5869"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "00c0b172a014a775aa7b97abef7f97717ae92441b8fea34ef37c09657adfb0f3"
+    sha256 "dc0a7c904ddb22d5b86c26cacd310511038c80c1d4c8febbbafe775fee7bbedb"
   end
 
   def install
