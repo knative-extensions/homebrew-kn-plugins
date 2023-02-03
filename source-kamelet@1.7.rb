@@ -1,6 +1,6 @@
 require 'fileutils'
 
-class SourceKamelet < Formula
+class SourceKameletAT17 < Formula
   v = "v1.7.0"
   plugin_name = "source-kamelet"
   path_name = "kn-plugin-#{plugin_name}"
