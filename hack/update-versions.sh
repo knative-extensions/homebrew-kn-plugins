@@ -17,8 +17,8 @@
 set -e
 
 PLUGINS=("admin" "event" "quickstart" "source-kafka" "source-kamelet")
-CURRENT_RELEASE=${CURRENT_RELEASE:-1.8}
-PREVIOUS_RELEASE=${PREVIOUS_RELEASE:-1.7}
+CURRENT_RELEASE=${CURRENT_RELEASE:-1.10}
+PREVIOUS_RELEASE=${PREVIOUS_RELEASE:-1.9}
 
 for plugin in "${PLUGINS[@]}"; do
 
