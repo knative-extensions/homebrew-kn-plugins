@@ -1,8 +1,8 @@
 require 'fileutils'
 
-class SourceKafka < Formula
-  v = "v1.11.0"
-  plugin_name = "source-kafka"
+class AdminAT110 < Formula
+  v = "v1.10.0"
+  plugin_name = "admin"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
   base_url = "https://github.com/knative-sandbox/#{path_name}/releases/download/knative-#{v}"
@@ -13,22 +13,22 @@ class SourceKafka < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "149eee8a1ddf9752973c9fac2edc9e3d878dbc80b5c47e81cb3c56583038e013"
+    sha256 "a7a55c363a35eabc05f50159d436699e769a3892fb05c6fdd420eba79cf7e9ab"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "cbd882e10e1f2c8f6f6890a972b85e261db988c96625cfce2ebfed0d0e74af6b"
+    sha256 "ad040536a6fda39d1605dc364f11b714d668ede4a7a385f06a6e89386f56e751"
   end
 
   def install
     if OS.mac?
-      FileUtils.mv("kn-source-kafka-darwin-amd64", "kn-source-kafka")
+      FileUtils.mv("kn-admin-darwin-amd64", "kn-admin")
     else
-      FileUtils.mv("kn-source-kafka-linux-amd64", "kn-source-kafka")
+      FileUtils.mv("kn-admin-linux-amd64", "kn-admin")
     end
-    bin.install "kn-source-kafka"
+    bin.install "kn-admin"
   end
 
   test do
-    system "#{bin}/kn-source-kafka", "version"
+    system "#{bin}/kn-admin", "version"
   end
 end
