@@ -1,0 +1,67 @@
+name: Check Knative Plugin Installation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check_plugins:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Homebrew
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+          test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
+          echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
+
+      - name: Tap knative-sandbox/kn-plugins
+        run: brew tap knative-sandbox/kn-plugins
+
+      - name: Install Knative plugins
+        run: |
+          brew install admin
+          brew install func
+          brew install quickstart
+          brew install source-kafka
+          brew install source-kamelet
+          brew install event
+
+      - name: Check plugin installations
+        run: |
+          if ! command -v kn-admin >/dev/null; then
+            echo "Admin plugin not found. Installation failed."
+            exit 1
+          fi
+          
+          if ! command -v kn-func >/dev/null; then
+            echo "Functions plugin not found. Installation failed."
+            exit 1
+          fi
+          
+          if ! command -v kn-quickstart >/dev/null; then
+            echo "Quickstart plugin not found. Installation failed."
+            exit 1
+          fi
+          
+          if ! command -v kn-source-kafka >/dev/null; then
+            echo "Source Kafka plugin not found. Installation failed."
+            exit 1
+          fi
+          
+          if ! command -v kn-source-kamelet >/dev/null; then
+            echo "Source Kamelet plugin not found. Installation failed."
+            exit 1
+          fi
+          
+          if ! command -v kn-event >/dev/null; then
+            echo "Event plugin not found. Installation failed."
+            exit 1
+          fi
+
