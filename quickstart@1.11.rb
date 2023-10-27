@@ -1,8 +1,8 @@
 require 'fileutils'
 
-class Admin < Formula
-  v = "v1.12.0"
-  plugin_name = "admin"
+class QuickstartAT111 < Formula
+  v = "v1.11.0"
+  plugin_name = "quickstart"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
   base_url = "https://github.com/knative-sandbox/#{path_name}/releases/download/knative-#{v}"
@@ -13,22 +13,23 @@ class Admin < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "b0406fa0cb17bb1f8784c93d123a0e185bb467471e314b801ba33c54c9f0c7f1"
+    sha256 "0cc699ffd36dda8f5a85addc1eb3e32b864b1c9653f50e40560ef330ea5d59ce"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "d2a1bd4fef5906af02e18ef97bfb1b03a7c7972805d72b9c55a1041d83dae2d5"
+    sha256 "6d5ab1c06e8fa3ae88b34c6b39469366d6e1dbd3626e0ce403bcae5ab63496ed"
   end
 
   def install
     if OS.mac?
-      FileUtils.mv("kn-admin-darwin-amd64", "kn-admin")
+      FileUtils.mv("kn-quickstart-darwin-amd64", "kn-quickstart")
     else
-      FileUtils.mv("kn-admin-linux-amd64", "kn-admin")
+      FileUtils.mv("kn-quickstart-linux-amd64", "kn-quickstart")
     end
-    bin.install "kn-admin"
+    bin.install "kn-quickstart"
   end
 
   test do
-    system "#{bin}/kn-admin", "version"
+    system "#{bin}/kn-quickstart", "version"
   end
 end
+
