@@ -1,7 +1,7 @@
 require 'fileutils'
 
 class Quickstart < Formula
-  v = "v1.12.0"
+  v = "v1.13.0"
   plugin_name = "quickstart"
   path_name = "kn-plugin-#{plugin_name}"
   file_name = "kn-#{plugin_name}"
@@ -13,10 +13,10 @@ class Quickstart < Formula
 
   if OS.mac?
     url "#{base_url}/#{file_name}-darwin-amd64"
-    sha256 "a24d2c076fe09a833f84dbee2d11a56a80eec80b9c82272b401d4c44a2c75c39"
+    sha256 "a813bef5dfc121527c6ebb6acb7e4d931fb08665b6d26964b05f630767c5f23e"
   else
     url "#{base_url}/#{file_name}-linux-amd64"
-    sha256 "e2142e3c4cb5e59f5e40197bc7076d98f6ef77981945125c888680e71b84a9b0"
+    sha256 "855203552b0115c92fd37f801397df642972cbad6b523414b7845b5c097f695c"
   end
 
   def install
