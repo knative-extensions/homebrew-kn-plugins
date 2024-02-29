@@ -1,4 +1,4 @@
-name: Test Knative Client Plugin Install
+name: Homebrew Tests
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    name: Homebrew Tap
+    name: Verify Install
     strategy:
       matrix:
         os: [ "ubuntu-latest", "macos-latest" ]
