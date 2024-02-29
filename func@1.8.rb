@@ -1,6 +1,6 @@
 require 'fileutils'
 
-class Func < Formula
+class FuncAT18 < Formula
   v = "v1.8.2"
   plugin_name = "func"
   path_name = "#{plugin_name}"
