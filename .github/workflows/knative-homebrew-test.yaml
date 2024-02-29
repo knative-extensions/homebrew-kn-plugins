@@ -17,17 +17,12 @@ jobs:
     steps:
       - name: Git checkout
         uses: actions/checkout@v4
-      - name: Install Homebrew
-        if: matrix.os == 'macos-latest'
-        run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          brew update
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
       - name: Install Bash 4 on MacOS
         if: matrix.os == 'macos-latest'
         run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          brew update
-
           brew install bash
           
           echo "/usr/local/bin" >> $GITHUB_PATH
