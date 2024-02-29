@@ -14,20 +14,20 @@ class FuncAT17 < Formula
   if OS.mac?
     if `uname -m`.chomp  == "arm64"
       url "#{base_url}/#{file_name}_darwin_arm64"
-      sha256 "d2ab0de9c3b058e1a27b0cb2cb8a2a630b6526d2e8de9571c9894813faabf69d"
+      sha256 "cffe2b6ed5845651ac62dc8fc72c435e3042bb9b1cd2a94e1d4ef65c59841d8e"
     else
       url "#{base_url}/#{file_name}_darwin_amd64"
-      sha256 "80d0f6350c5d222259c22531fadddcca86339581efe455149b970648f5a2dd40"
+      sha256 "542b134cba4835fb452546829a84a1c8a3b44ee778c57585bf6d3c19c8ff00d0"
     end
   end
 
   if OS.linux?
     if `uname -m`.chomp  == "arm64"
       url "#{base_url}/#{file_name}_linux_arm64"
-      sha256 "de357c92d62c4640da1c7750bbc70338c699a89f3ff4eab48c20a8e62aca1413"
+      sha256 "a49048728473f5399b9fbd4ff9de33c7ba92427da6037363c4d6fb393e539d91"
     else
       url "#{base_url}/#{file_name}_linux_amd64"
-      sha256 "1b0f2f9a357cb930a4c256620018b25adb634547a8fb315ddc303f150d4cf7f3"
+      sha256 "c6981cba72ad9265e1290fcdd819ff4017595925554a881bcb53fb8a5ef55eb9"
     end 
   end
 
