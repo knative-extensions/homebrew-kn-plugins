@@ -16,7 +16,7 @@
 
 set -e
 
-PLUGINS=("admin" "event" "quickstart" "source-kafka" "source-kamelet")
+PLUGINS=("admin" "event" "func" "quickstart" "source-kafka" "source-kamelet")
 CURRENT_RELEASE=${CURRENT_RELEASE:-1.14}
 PREVIOUS_RELEASE=${PREVIOUS_RELEASE:-1.13}
 
@@ -59,6 +59,6 @@ for plugin in "${PLUGINS[@]}"; do
 
     echo "$newfile created"
 
-done 
+done
 
 echo "Have a nice day!"
