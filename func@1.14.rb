@@ -1,7 +1,7 @@
 require 'fileutils'
 
-class Func < Formula
-  v = "v1.15.0"
+class FuncAT114 < Formula
+  v = "v1.14.0"
   plugin_name = "func"
   path_name = "#{plugin_name}"
   file_name = "#{plugin_name}"
@@ -14,20 +14,20 @@ class Func < Formula
   if OS.mac?
     if `uname -m`.chomp  == "arm64"
       url "#{base_url}/#{file_name}_darwin_arm64"
-      sha256 "857b437e93f0124e4b646e937281dc6a10dd6c05b64861e1482af0184fd7faa1"
+      sha256 "5c6afbc75df69518b2a8fc438991c18fd4f0b0bc22e0d0da8fb26cb9495b8da5"
     else
       url "#{base_url}/#{file_name}_darwin_amd64"
-      sha256 "74df62ba963a75cee38004e6c7ba734bd6b2038452ab943c9ff7ec53d139c17c"
+      sha256 "bd68e6c409e1c1f7df36ecd34e5045fb7cfb952e32b7233bc19c7db640651aef"
     end
   end
 
   if OS.linux?
     if `uname -m`.chomp  == "arm64"
       url "#{base_url}/#{file_name}_linux_arm64"
-      sha256 "3e189118c864d6e23ff162d0a840d28032cba9eb7b3cf3b7fa33afce84696454"
+      sha256 "f3afd2875af9e61d161b3b12f58fb061508c6c3bd2abb6600855dabba28e6424"
     else
       url "#{base_url}/#{file_name}_linux_amd64"
-      sha256 "4860015dbd83c582d9ed5751ebfd814e68cd19639fb82ca65fa2f003b0aecdfc"
+      sha256 "286b7a22ffd196ef113dd08f29859d2b8e2ac1eed06115947824d5a6236b7674"
     end
   end
 
