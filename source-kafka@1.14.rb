@@ -3,7 +3,7 @@
 # source-kafka_version:1.14.0
 require "fileutils"
 
-class Source-kafkaAT114 < Formula
+class SourceKafkaAT114 < Formula
   homepage "https://github.com/knative-extensions/kn-plugin-source-kafka"
 
   v = "knative-v1.14.0"

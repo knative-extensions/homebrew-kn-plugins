@@ -100,6 +100,12 @@ function generate_tap_file() {
   # Cleanup temp file
   rm "${checksums}"
 
+  # Sanitize name to be class name
+  local className=${name^}
+  if [[ "${name}" == "source"* ]]; then
+    className=$(echo "${name}" | tr "-" " " | sed -e 's/\b./\U&/g' | tr -d " ")
+  fi
+
   if [[ "${name}" == "event" ]]; then
 cat <<EOF > "$out"
 # Generated through hack/update-codegen.sh. Don't edit manually.
@@ -137,7 +143,7 @@ cat <<EOF > "$out"
 # ${name}_version:${version}
 require "fileutils"
 
-class ${name^}${old_formula} < Formula
+class ${className^}${old_formula} < Formula
   homepage "${repo_url}"
 
   v = "knative-v${version}"

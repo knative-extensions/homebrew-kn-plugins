@@ -3,7 +3,7 @@
 # source-kamelet_version:1.15.0
 require "fileutils"
 
-class Source-kamelet < Formula
+class SourceKamelet < Formula
   homepage "https://github.com/knative-extensions/kn-plugin-source-kamelet"
 
   v = "knative-v1.15.0"
