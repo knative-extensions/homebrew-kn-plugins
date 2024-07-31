@@ -1,11 +1,14 @@
-require 'fileutils'
+# Generated through hack/update-codegen.sh. Don't edit manually.
+# Next line is used to identify version of the file.
+# event_version:1.14.0
+require "fileutils"
 require 'json'
 
 require_relative 'kn/plugin/event'
 
 class EventAT114 < Formula
   PLUGIN = Kn::Plugin::Event.new 'v1.14.0'
-  
+
   homepage PLUGIN.homepage
   version PLUGIN.version
   url PLUGIN.url
