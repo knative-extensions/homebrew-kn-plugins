@@ -18,8 +18,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-set -x
-
 # Retrieve latest version from given Knative repository tags
 # On 'main' branch the latest released version is returned
 # On 'release-x.y' branch the latest patch version for 'x.y.*' is returned
@@ -106,37 +104,6 @@ function generate_tap_file() {
     className=$(echo "${name}" | tr "-" " " | sed -e 's/\b./\U&/g' | tr -d " ")
   fi
 
-  if [[ "${name}" == "event" ]]; then
-cat <<EOF > "$out"
-# Generated through hack/update-codegen.sh. Don't edit manually.
-# Next line is used to identify version of the file.
-# ${name}_version:${version}
-require "fileutils"
-require 'json'
-
-require_relative 'kn/plugin/event'
-
-class ${name^}${old_formula} < Formula
-  PLUGIN = Kn::Plugin::Event.new 'v${version}'
-
-  homepage PLUGIN.homepage
-  version PLUGIN.version
-  url PLUGIN.url
-  sha256 PLUGIN.sha256
-
-  def install
-    FileUtils.mv(PLUGIN.source_bin, PLUGIN.target_bin)
-    bin.install PLUGIN.target_bin
-  end
-
-  test do
-    json = shell_output("#{bin}/#{PLUGIN.target_bin} version -o json").strip
-    version_info = JSON.parse(json)
-    assert_equal PLUGIN.version, version_info['version']
-  end
-end
-EOF
-  else
 cat <<EOF > "$out"
 # Generated through hack/update-codegen.sh. Don't edit manually.
 # Next line is used to identify version of the file.
@@ -182,7 +149,6 @@ class ${className^}${old_formula} < Formula
   end
 end
 EOF
-  fi
 }
 
 # The script is meant to be executed though GH action to generate content update and review in the PR.
