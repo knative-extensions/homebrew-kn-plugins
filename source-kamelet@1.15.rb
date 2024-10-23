@@ -1,26 +1,26 @@
 # Generated through hack/update-codegen.sh. Don't edit manually.
 # Next line is used to identify version of the file.
-# source-kamelet_version:1.16.0
+# source-kamelet_version:1.15.0
 require "fileutils"
 
-class SourceKamelet < Formula
+class SourceKameletAT115 < Formula
   homepage "https://github.com/knative-extensions/kn-plugin-source-kamelet"
 
-  v = "knative-v1.16.0"
+  v = "knative-v1.15.0"
   version v
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/knative-extensions/kn-plugin-source-kamelet/releases/download/#{v}/kn-source-kamelet-darwin-amd64"
-    sha256 "c02f869ecd4c4f628e926776a6c47a79f4193ba3c734c3fd047056092da1be63"
+    sha256 "c73c6c91072e7c0711c3009142568acbbe15e14d7d06eee227524a0eed92bc3a"
   elsif OS.mac? && Hardware::CPU.arm?
     url "https://github.com/knative-extensions/kn-plugin-source-kamelet/releases/download/#{v}/kn-source-kamelet-darwin-arm64"
-    sha256 "8bc721d92516f4664d0567abc281b46774b9bfd6c7dc0a999891caea19c38cfb"
+    sha256 "22096c97ee527d7eeb9ec099124e461af8f113a0b67961c916ba82111cd86922"
   elsif OS.linux? && Hardware::CPU.arm?
     url "https://github.com/knative-extensions/kn-plugin-source-kamelet/releases/download/#{v}/kn-source-kamelet-linux-arm64"
-    sha256 "5f060c5d1222c0a6b1cc69118e319881e566462c552228ee318d4c19977b01a1"
+    sha256 "6ba24bf78d912a211e8b38400a5bb8640087d1b045249e2e2d5020b08f13a721"
   else
     url "https://github.com/knative-extensions/kn-plugin-source-kamelet/releases/download/#{v}/kn-source-kamelet-linux-amd64"
-    sha256 "d05d1e2b68d7a2f90a596b921e9f7dfe6fb859373cd830b7690ac993bb8dc368"
+    sha256 "4540e8abb1e735631485cbd362b121e817f8f1d36c6282ffada1f59d8d9eeffa"
   end
 
   def install
