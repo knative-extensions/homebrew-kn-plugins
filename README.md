@@ -1,4 +1,6 @@
 ## Homebrew Tap for Knative client plugins
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fknative-extensions%2Fhomebrew-kn-plugins.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fknative-extensions%2Fhomebrew-kn-plugins?ref=badge_shield)
+
 
 This repository contains the [Hombrew Tap](https://docs.brew.sh/Taps) for Knative clients plugins.
 
@@ -35,3 +37,7 @@ brew install knative-sandbox/kn-plugins/admin
 To update plugins that are part of the [release train](https://github.com/knative/release/blob/main/INSTRUCTIONS.md#homebrew-kn-plugins), update the `PREVIOUS_RELEASE` / `CURRENT_RELEASE` variables in the `./hack/update-versions.sh` script, then run the script locally and push a PR with the changes. 
 
 For plugins not on the release train, updates will need to be done manually, as for example in [this PR](https://github.com/knative-sandbox/homebrew-kn-plugins/pull/92). 
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fknative-extensions%2Fhomebrew-kn-plugins.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fknative-extensions%2Fhomebrew-kn-plugins?ref=badge_large)
