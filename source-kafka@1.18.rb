@@ -1,26 +1,26 @@
 # Generated through hack/update-codegen.sh. Don't edit manually.
 # Next line is used to identify version of the file.
-# source-kafka_version:1.19.0
+# source-kafka_version:1.18.0
 require "fileutils"
 
-class SourceKafka < Formula
+class SourceKafkaAT118 < Formula
   homepage "https://github.com/knative-extensions/kn-plugin-source-kafka"
 
-  v = "knative-v1.19.0"
+  v = "knative-v1.18.0"
   version v
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/knative-extensions/kn-plugin-source-kafka/releases/download/#{v}/kn-source-kafka-darwin-amd64"
-    sha256 "d7645edd717c1043c1dc13421b6608a0e44b64d627358d18b114ad7c4f46c7c3"
+    sha256 "b2e75616a13374ed10c7c8c5fc774edd7accb9dc75d16c183153c6f11d093cb7"
   elsif OS.mac? && Hardware::CPU.arm?
     url "https://github.com/knative-extensions/kn-plugin-source-kafka/releases/download/#{v}/kn-source-kafka-darwin-arm64"
-    sha256 "c5b9917590b6069043d7162487d34d008f1fca1da88a95bb799c7896380e40d5"
+    sha256 "2732c263fe84f3d14cb8a09b172bccca5f76f99cd6a539aaa7e5a3f13cd348d3"
   elsif OS.linux? && Hardware::CPU.arm?
     url "https://github.com/knative-extensions/kn-plugin-source-kafka/releases/download/#{v}/kn-source-kafka-linux-arm64"
-    sha256 "a8b4dd058a426733b750808d6d9c95f3a09a9937779372a50dbe623fddc19d20"
+    sha256 "a45ed7eba31667f406bdc45932c27feb7e3f614df0dfc1e075aa5dc8645370d0"
   else
     url "https://github.com/knative-extensions/kn-plugin-source-kafka/releases/download/#{v}/kn-source-kafka-linux-amd64"
-    sha256 "d4d913158bfc9c0e753ec1dd0b30a2129e1939ab42f7152d611f562c88494d85"
+    sha256 "2eadbf9b694a5a7db5ca5ce6ecd33d8bf807adaec5179ca9404f4022b2f8b7e0"
   end
 
   def install
