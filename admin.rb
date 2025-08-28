@@ -1,26 +1,26 @@
 # Generated through hack/update-codegen.sh. Don't edit manually.
 # Next line is used to identify version of the file.
-# admin_version:1.19.0
+# admin_version:1.19.2
 require "fileutils"
 
 class Admin < Formula
   homepage "https://github.com/knative-extensions/kn-plugin-admin"
 
-  v = "knative-v1.19.0"
+  v = "knative-v1.19.2"
   version v
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/knative-extensions/kn-plugin-admin/releases/download/#{v}/kn-admin-darwin-amd64"
-    sha256 "6fd7a1bc9058d96388861bcb4e9b86c603743d198a9e1426f9e1d047ac4021c4"
+    sha256 "932cd5ef32a8788e215232fb835c565fedb3d691e109e9fc6b2e3e938d6ed4ad"
   elsif OS.mac? && Hardware::CPU.arm?
     url "https://github.com/knative-extensions/kn-plugin-admin/releases/download/#{v}/kn-admin-darwin-arm64"
-    sha256 "569056f0ef49d481037d7d37124c3e9c37c1400418c1ef7c4054f1dd0cf99709"
+    sha256 "0c1fe735d2a7cbd2630487bc11f5148b39b3efcb74ad007ddb692b989f235f70"
   elsif OS.linux? && Hardware::CPU.arm?
     url "https://github.com/knative-extensions/kn-plugin-admin/releases/download/#{v}/kn-admin-linux-arm64"
-    sha256 "f24cdbe2523c513f1a39c9639e618cad6e68ef68478dbbacfc1f0df38f39e2d8"
+    sha256 "f36c7fc173f3374a2f6c58556cec67943a3ba06e4170254ffff5d5befbb527ed"
   else
     url "https://github.com/knative-extensions/kn-plugin-admin/releases/download/#{v}/kn-admin-linux-amd64"
-    sha256 "ea60730b808594eaa948f2c70a46d7f0550138687d2ea6134d5ca5245b4a3d30"
+    sha256 "5983e3ee21188f98654ca0c316b9a2760ff29235d2bb376388d0d87f38893a89"
   end
 
   def install
