@@ -47,15 +47,17 @@ function verify_install() {
 
   for filename in *.rb; do
       local name
-      name=$(echo "${filename}" | cut -d '.' -f1 | cut -d '@' -f1)
+      name="${filename%.rb}"
 
       echo "Installing from tap: ${tap_name}/${name}"
       echo "Formula file: ${filename}"
 
       brew install -v "${tap_name}/${name}" --force || echo "Failed: ${filename}"
 
-      if ! command -v kn-${name} >/dev/null; then
-          echo "Plugin $name not found. Installation probably failed."
+      # Binary name is always kn-<base_name> without version suffix
+      local binary_name="${name%%@*}"
+      if ! command -v "kn-${binary_name}" >/dev/null; then
+          echo "Plugin ${binary_name} (from ${name}) not found. Installation probably failed."
           failed+=("${filename}")
       else
         echo "Successfully verified: ${name}"
