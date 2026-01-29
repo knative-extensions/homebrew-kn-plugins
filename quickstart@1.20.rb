@@ -1,26 +1,26 @@
 # Generated through hack/update-codegen.sh. Don't edit manually.
 # Next line is used to identify version of the file.
-# quickstart_version:1.21.0
+# quickstart_version:1.20.0
 require "fileutils"
 
-class Quickstart < Formula
+class QuickstartAT120 < Formula
   homepage "https://github.com/knative-extensions/kn-plugin-quickstart"
 
-  v = "knative-v1.21.0"
+  v = "knative-v1.20.0"
   version v
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/knative-extensions/kn-plugin-quickstart/releases/download/#{v}/kn-quickstart-darwin-amd64"
-    sha256 "c4808db7965c620e981feef7390b981f2b2eb7dc973113d915a758eccafd96c2"
+    sha256 "65df9473e90ec128edd51fcef3ed53f0ff63be1cadfa2887d114c535a7677a6a"
   elsif OS.mac? && Hardware::CPU.arm?
     url "https://github.com/knative-extensions/kn-plugin-quickstart/releases/download/#{v}/kn-quickstart-darwin-arm64"
-    sha256 "687614b2838ba941be0d9be2bb276d489427707c7d692fb55f952ccb6c28ce10"
+    sha256 "93e4f508a62e301843df9cb1e882a43e325e7841e28a7b29755069351ad19a9c"
   elsif OS.linux? && Hardware::CPU.arm?
     url "https://github.com/knative-extensions/kn-plugin-quickstart/releases/download/#{v}/kn-quickstart-linux-arm64"
-    sha256 "1cf24e058fd629d05eb7ab10b6bffa66b623c69b7423a0dd51f42b9e092f582b"
+    sha256 "7ae2e0f2dd1e6540809fe1d804bc11f9f2bf03fb980261b48eb3527c0bcc5d46"
   else
     url "https://github.com/knative-extensions/kn-plugin-quickstart/releases/download/#{v}/kn-quickstart-linux-amd64"
-    sha256 "0dbd5cd3bc42eb36a1401cd686098c9be5a47540ebf339a7a8987a63bb320e13"
+    sha256 "17efb8df50420721688478f268fa0c8c3aa08c865666cb100c46cba7e704d409"
   end
 
   def install
