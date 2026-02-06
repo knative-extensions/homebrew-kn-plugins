@@ -1,26 +1,26 @@
 # Generated through hack/update-codegen.sh. Don't edit manually.
 # Next line is used to identify version of the file.
-# func_version:1.21.0
+# func_version:1.21.1
 require "fileutils"
 
 class Func < Formula
   homepage "https://github.com/knative/func"
 
-  v = "knative-v1.21.0"
+  v = "knative-v1.21.1"
   version v
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/knative/func/releases/download/#{v}/func_darwin_amd64"
-    sha256 "e7b4e7ecc73af395c6ec99233b30ee638dc5796849d48b788df203a4e92ee2d7"
+    sha256 "021b611d38443b4e57553baa7d8cf4d377e200a5220fb1bf49bae232cebe5c38"
   elsif OS.mac? && Hardware::CPU.arm?
     url "https://github.com/knative/func/releases/download/#{v}/func_darwin_arm64"
-    sha256 "afe5f157517a152e4cced7a3500dbc41ff4dae832415b1e3002d6a67477db906"
+    sha256 "a60036c7f3d49b2e8c8d11cf7d85e5e181c28fc6a59293244365946977f5a492"
   elsif OS.linux? && Hardware::CPU.arm?
     url "https://github.com/knative/func/releases/download/#{v}/func_linux_arm64"
-    sha256 "4b6b21d7ed11cd847343f24a5e3ff7ad743f2b2cf1bb0ebac8b19571dec32a3e"
+    sha256 "348e473ac19628c2f85fe1d0fdb720147de4e3dfa8e6faa5154064ecd163337f"
   else
     url "https://github.com/knative/func/releases/download/#{v}/func_linux_amd64"
-    sha256 "e74a4b5513e7e3221f9d2cbe985f389412db9b281baefd362d53c699698a6bcd"
+    sha256 "1da4df9db0e0829ae7dcb23212f51a5975753b77baea93f4604455e61dc6ac82"
   end
 
   def install
