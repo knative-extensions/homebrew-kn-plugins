@@ -22,26 +22,34 @@ set -o pipefail
 [[ ! -v REPO_ROOT_DIR ]] && REPO_ROOT_DIR="$(git rev-parse --show-toplevel)"
 readonly REPO_ROOT_DIR
 
+# Prevent auto-updates that might conflict with interim test setup
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+
 # List all *.rb files and try to install them as local Homebrew Tap formula
 function verify_install() {
 
   pushd "${REPO_ROOT_DIR}"
 
-  # Create a local tap of this repo to install the local formulae
-  local tap_name="knative/kn-plugins-test"
+  local tap_name="knative-extensions/kn-plugins"
   local tap_path="$(brew --repository)/Library/Taps/knative/homebrew-kn-plugins-test"
 
-  # Clean up any existing test tap
-  if [ -L "${tap_path}" ] || [ -d "${tap_path}" ]; then
-    rm -rf "${tap_path}"
+  if [[ -z ${GITHUB_ACTIONS:-} ]]; then
+    # Create a local tap of this repo to install the local formulae
+    local tap_name="knative/kn-plugins-test"
+
+    # Clean up any existing test tap
+    if [ -L "${tap_path}" ] || [ -d "${tap_path}" ]; then
+      rm -rf "${tap_path}"
+    fi
+
+    # Create a tap by symlinking this repo
+    mkdir -p "$(dirname "${tap_path}")"
+    ln -s "${REPO_ROOT_DIR}" "${tap_path}"
+
+    echo "Created local tap: ${tap_name}"
+    echo "Tap path: ${tap_path}"
   fi
-
-  # Create a tap by symlinking this repo
-  mkdir -p "$(dirname "${tap_path}")"
-  ln -s "${REPO_ROOT_DIR}" "${tap_path}"
-
-  echo "Created local tap: ${tap_name}"
-  echo "Tap path: ${tap_path}"
 
   local failed=()
 
@@ -64,12 +72,14 @@ function verify_install() {
       fi
 
       # Remove to not clash with other version, continue
-      brew uninstall -v "${name}" --force || echo "Failed uninstall: ${name}"
+      brew uninstall -v "${tap_name}/${name}" --force || echo "Failed uninstall: ${name}"
   done
 
-  # Clean up the test tap
-  rm -rf "${tap_path}"
-  echo "Cleaned up local tap"
+  if [[ -z ${GITHUB_ACTIONS:-} ]]; then
+    # Clean up the test tap
+    rm -rf "${tap_path}"
+    echo "Cleaned up local tap"
+  fi
 
   if (( ${#failed[@]} > 0 )); then
     echo "#####"
