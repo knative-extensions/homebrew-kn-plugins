@@ -1,26 +1,26 @@
 # Generated through hack/update-codegen.sh. Don't edit manually.
 # Next line is used to identify version of the file.
-# event_version:1.23.0
+# event_version:1.22.1
 require "fileutils"
 
-class Event < Formula
+class EventAT122 < Formula
   homepage "https://github.com/knative-extensions/kn-plugin-event"
 
-  v = "knative-v1.23.0"
+  v = "knative-v1.22.1"
   version v
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/knative-extensions/kn-plugin-event/releases/download/#{v}/kn-event-darwin-amd64"
-    sha256 "5006312d3dc22076dd67dd3a444ccaebcfeb410172d1df17ec257619e103a73a"
+    sha256 "eb7a0a089c4e28b821fe46299b02a65080958e51366837177ddabcfa40488afd"
   elsif OS.mac? && Hardware::CPU.arm?
     url "https://github.com/knative-extensions/kn-plugin-event/releases/download/#{v}/kn-event-darwin-arm64"
-    sha256 "69905d60974b5c584e713b92d89110ebc4d5cbffec1cb963a109f6736be43c9d"
+    sha256 "f41f46ae35fcd840e19b173927aab9b2aa99321e5eba4c5cd84e6a482b8ba747"
   elsif OS.linux? && Hardware::CPU.arm?
     url "https://github.com/knative-extensions/kn-plugin-event/releases/download/#{v}/kn-event-linux-arm64"
-    sha256 "a3cf629c4957f93a184566ac8beae7a30dd8e76d85f223a9c7019cb2c4bddb15"
+    sha256 "0a412d390325b926c71ffc5095142ea77341bd5479b08f8f6c5ea6396db4f800"
   else
     url "https://github.com/knative-extensions/kn-plugin-event/releases/download/#{v}/kn-event-linux-amd64"
-    sha256 "0cd181e5b6ff1ecedd50a427bf24a2849530b98fa613086673d62e08b13e3f44"
+    sha256 "5ea3c41407df4d93db92873dd8dd96c2a53a9c1a204eae2822f63cb96640f484"
   end
 
   def install
