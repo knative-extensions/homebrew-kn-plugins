@@ -16,7 +16,8 @@
 
 set -e
 
-PLUGINS=("admin" "event" "quickstart" "source-kafka" "source-kamelet")
+# Retired plugins (source-kamelet) remain installable but are not regenerated.
+PLUGINS=("admin" "event" "quickstart" "source-kafka")
 CURRENT_RELEASE=${CURRENT_RELEASE:-1.15}
 PREVIOUS_RELEASE=${PREVIOUS_RELEASE:-1.14}
 

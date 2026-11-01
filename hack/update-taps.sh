@@ -165,7 +165,8 @@ readonly OVERRIDE_RELEASE_VERSION=${OVERRIDE_RELEASE_VERSION:-}
 pushd $REPO_ROOT_DIR
 
 # Update plugin according release requirements
-PLUGINS=("admin" "event" "func" "quickstart" "source-kafka" "source-kamelet")
+# Retired plugins (source-kamelet) remain installable but are not regenerated.
+PLUGINS=("admin" "event" "func" "quickstart" "source-kafka")
 
 for plugin in "${PLUGINS[@]}"; do
   echo "${plugin}"

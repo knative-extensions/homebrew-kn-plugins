@@ -14,7 +14,6 @@ The supported client plugins are:
 * [kn-plugin-func](https://github.com/knative-sandbox/kn-plugin-func) - The Functions plugin
 * [kn-plugin-quickstart](https://github.com/knative-sandbox/kn-plugin-quickstart) - The Quickstart plugin
 * [kn-plugin-source-kafka](https://github.com/knative-sandbox/kn-plugin-source-kafka) - The source Kafka plugin
-* [kn-plugin-source-kamelet](https://github.com/knative-sandbox/kn-plugin-source-kamelet) - The source Kamelet plugin
 * [kn-plugin-event](https://github.com/knative-sandbox/kn-plugin-event) - Sending events to Knative sinks
 
 
@@ -29,6 +28,20 @@ Alternatively you can also install each plugin directly (without adding a tap gl
 ```
 brew install knative-sandbox/kn-plugins/admin
 ```
+
+## Retired plugins
+
+[kn-plugin-source-kamelet](https://github.com/knative-extensions/kn-plugin-source-kamelet)
+is end-of-life and no longer maintained, as tracked in
+[knative/community#1802](https://github.com/knative/community/issues/1802).
+Its formula is deprecated and excluded from automated version updates. The
+existing formula and release binaries remain available for legacy use:
+
+```
+brew install knative-extensions/kn-plugins/source-kamelet
+```
+
+`kn-plugin-service-log` is also end-of-life; this tap has no formula for it.
 
 ## Updating Plugin Versions
 
