@@ -34,12 +34,10 @@ brew install knative-sandbox/kn-plugins/admin
 [kn-plugin-source-kamelet](https://github.com/knative-extensions/kn-plugin-source-kamelet)
 is end-of-life and no longer maintained, as tracked in
 [knative/community#1802](https://github.com/knative/community/issues/1802).
-Its formula is deprecated and excluded from automated version updates. The
-existing formula and release binaries remain available for legacy use:
-
-```
-brew install knative-extensions/kn-plugins/source-kamelet
-```
+Its formula is disabled to prevent new installations and excluded from automated
+version updates. Existing installations are not removed, and GitHub release
+binaries remain available. Historical versioned formulae in `archive/` are
+unchanged; they are not listed as installable formulae by this tap.
 
 `kn-plugin-service-log` is also end-of-life; this tap has no formula for it.
 

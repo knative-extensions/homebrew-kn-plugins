@@ -6,7 +6,7 @@ require "fileutils"
 class SourceKamelet < Formula
   homepage "https://github.com/knative-extensions/kn-plugin-source-kamelet"
 
-  deprecate! date: "2026-11-01", because: :unmaintained
+  disable! date: "2026-11-01", because: :unmaintained
 
   v = "knative-v1.16.0"
   version v
