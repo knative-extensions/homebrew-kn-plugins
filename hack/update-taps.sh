@@ -165,7 +165,6 @@ readonly OVERRIDE_RELEASE_VERSION=${OVERRIDE_RELEASE_VERSION:-}
 pushd $REPO_ROOT_DIR
 
 # Update plugin according release requirements
-# Retired plugins (source-kamelet) are excluded from formula regeneration.
 PLUGINS=("admin" "event" "func" "quickstart" "source-kafka")
 
 for plugin in "${PLUGINS[@]}"; do
