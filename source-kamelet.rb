@@ -1,10 +1,12 @@
-# Generated through hack/update-codegen.sh. Don't edit manually.
+# Retired plugin: kept at its last release and excluded from automated updates.
 # Next line is used to identify version of the file.
 # source-kamelet_version:1.16.0
 require "fileutils"
 
 class SourceKamelet < Formula
   homepage "https://github.com/knative-extensions/kn-plugin-source-kamelet"
+
+  disable! date: "2026-11-01", because: :unmaintained
 
   v = "knative-v1.16.0"
   version v

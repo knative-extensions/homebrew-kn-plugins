@@ -14,7 +14,6 @@ The supported client plugins are:
 * [kn-plugin-func](https://github.com/knative-sandbox/kn-plugin-func) - The Functions plugin
 * [kn-plugin-quickstart](https://github.com/knative-sandbox/kn-plugin-quickstart) - The Quickstart plugin
 * [kn-plugin-source-kafka](https://github.com/knative-sandbox/kn-plugin-source-kafka) - The source Kafka plugin
-* [kn-plugin-source-kamelet](https://github.com/knative-sandbox/kn-plugin-source-kamelet) - The source Kamelet plugin
 * [kn-plugin-event](https://github.com/knative-sandbox/kn-plugin-event) - Sending events to Knative sinks
 
 
